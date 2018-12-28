@@ -6,6 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import json
+import pymsql
 
 class TencentJsonPipeline(object):
 
@@ -15,6 +16,12 @@ class TencentJsonPipeline(object):
         def process_item(self, item, spider):
                 item_dic = dict(item)
                 content = json.dumps(item_dic, ensure_ascii=False) + "\n"
+				db = pymysql.connect('localhost', 'root', '897011805', 'yhj')
+				cursor = db.cursor()
+				sql = """INSERT INTO hrs values ('%d', '%s', '%d', '%s', '%s', '%s')""" % (1, item.positionName, item.positionType, item.peropleNumber, item.positionLocation, item.publishTime)
+				cursor.execute(sql)
+				cursor.commit()
+				db.close()
                 self.file.write(content)
                 return item
 
