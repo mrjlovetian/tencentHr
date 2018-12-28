@@ -6,7 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import json
-import pymsql
+import pymysql
 
 class TencentJsonPipeline(object):
 
@@ -22,6 +22,7 @@ class TencentJsonPipeline(object):
                 cursor.execute(sql)
                 cursor.commit()
                 db.close()
+				print('.................'+sql)
                 self.file.write(content)
                 return item
 
