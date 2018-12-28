@@ -27,7 +27,7 @@ class TencentSpider(scrapy.Spider):
 
             curpage = re.search('(\d+)', response.url).group(1)
             page = int(curpage) + 10
-            url = re.sub('+\d', str(page), response.url)
+            url = re.sub('\d+', str(page), response.url)
             yield scrapy.Request(url, callback = self.parse)
             yield item
 
