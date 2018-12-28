@@ -10,7 +10,7 @@ import json
 class TencentJsonPipeline(object):
 
         def __init__(self):
-                self.file = open('tencent.json', 'wb')
+                self.file = open('tencent.json', 'wb', encoding='utf-8')
 
         def process_item(self, item, spider):
                 content = json.dumps(dict(item), ensure_ascii=False) + "\n"
