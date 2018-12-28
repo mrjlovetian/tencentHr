@@ -10,12 +10,12 @@ import json
 class TencentJsonPipeline(object):
 
         def __init__(self):
-                self.file = open('tencent.json', 'wb', encoding='utf-8')
+                self.file = open('tencent.json', mode='wb')
 
         def process_item(self, item, spider):
                 item_dic = dict(item)
                 content = json.dumps(item_dic, ensure_ascii=False) + "\n"
-                self.file.write(content)
+                self.file.write(content.encode(encoding='utf-8'))
                 return item
 
         def close_spider(self, spider):
