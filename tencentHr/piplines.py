@@ -15,6 +15,7 @@ class TencentJsonPipeline(object):
         def process_item(self, item, spider):
                 item_dic = dict(item)
                 content = json.dumps(item_dic, ensure_ascii=False) + "\n"
+                print('content'+content)
                 self.file.write(content.decode())
                 return item
 
