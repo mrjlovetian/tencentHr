@@ -13,7 +13,7 @@ class TencentSpider(scrapy.Spider):
             item = TencentItem()
             name = each.xpath('./td[1]/a/text()').extract()[0]
             detailLink = each.xpath('./td[1]/a/@href').extract()[0]
-	    positionInfo = each.xpath('./td[2]/text()').extract()[0]
+			positionInfo = each.xpath('./td[2]/text()').extract()[0]
             peopleNumber = each.xpath('./td[3]/text()').extract()[0]
             workLocation = each.xpath('./td[4]/text()').extract()[0]
             publishTime = each.xpath('./td[5]/text()').extract()[0]
