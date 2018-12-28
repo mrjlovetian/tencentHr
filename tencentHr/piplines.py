@@ -13,7 +13,7 @@ class TencentJsonPipeline(object):
                 self.file = open('tencent.json', 'wb')
 
         def process_item(self, item, spider):
-                content = json.dumps(dic(item), ensure_ascii=False) + "\n"
+                content = json.dumps(dict(item), ensure_ascii=False) + "\n"
                 self.file.write(content)
                 return item
 
