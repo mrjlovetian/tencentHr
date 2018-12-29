@@ -18,12 +18,12 @@ class TencentSpider(scrapy.Spider):
             workLocation = each.xpath('./td[4]/text()').extract()[0]
             publishTime = each.xpath('./td[5]/text()').extract()[0]
 
-            item['name'] = name.encode('utf-8')
-            item['detailLink'] = detailLink.encode('utf-8')
-            item['positionInfo'] = positionInfo.encode('utf-8')
-            item['peopleNumber'] = peopleNumber.encode('utf-8')
-            item['workLocation'] = workLocation.encode('utf-8')
-            item['publishTime'] = publishTime.encode('utf-8')
+            item['name'] = name
+            item['detailLink'] = detailLink
+            item['positionInfo'] = positionInfo
+            item['peopleNumber'] = peopleNumber
+            item['workLocation'] = workLocation
+            item['publishTime'] = publishTime
 
             curpage = re.search('(\d+)', response.url).group(1)
             page = int(curpage) + 10
