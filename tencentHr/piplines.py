@@ -20,7 +20,7 @@ class TencentJsonPipeline(object):
                 cursor = db.cursor()
                 sql = """INSERT INTO hrs values ('%d', '%s', '%s', '%s', '%s', '%s')""" % (1, item['name'], item['positionInfo'], item['peopleNumber'], item['workLocation'], item['publishTime'])
                 cursor.execute(sql)
-                cursor.commit()
+                db.commit()
                 db.close()
                 print('.............................', sql)
                 self.file.write(content)
