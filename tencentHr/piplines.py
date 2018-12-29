@@ -22,7 +22,7 @@ class TencentJsonPipeline(object):
                 cursor.execute(sql)
                 cursor.commit()
                 db.close()
-				print('.................'+sql)
+                print('.............................', sql)
                 self.file.write(content)
                 return item
 
